@@ -5,37 +5,41 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Project</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
+<head>
+	<title>Project</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
 
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Project</span>
-								</a>
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-							<!-- 
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Project</span>
+				</a>
+
+				<!-- 
 								<nav>
 									<ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav> -->
 
-						</div>
-					</header>
+			</div>
+		</header>
 
-				<!-- 
+		<!-- 
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
@@ -47,47 +51,135 @@
 						</ul>
 					</nav> -->
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<h1>RNA-pipe</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>It is a simple pipeline of my work at bioinformatics course. It is not easy to explore all of the tools by myself and I remember to spend a whole afternoon in Teaching Building 2 in west campus at January 1st, 2022. I don't want other students to suffer from this course. </p>
-							<p>The bioinformatics course in our university really covers a large field so they cannot provide so detailed information about how to use software like <a href = "https://diytranscriptomics.com">diytranscriptomics</a>. You can refer to <a href = "https://diytranscriptomics.com">diytranscriptomics</a> for downstream analysis.</p>
-							<h4>The simple introduction to the RNA-analysis upstream data process using traditional method:</h4>
-						</div>
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>RNA-pipe</h1>
+				<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+				<p>It is a simple pipeline of my work at bioinformatics course. It is not easy to explore all of the
+					tools by myself and I remember to spend a whole afternoon in Teaching Building 2 in west campus at
+					January 1st, 2022. I don't want other students to suffer from this course. </p>
+				<p>The bioinformatics course in our university really covers a large field so they cannot provide so
+					detailed information about how to use software like <a
+						href="https://diytranscriptomics.com">diytranscriptomics</a>. You can refer to <a
+						href="https://diytranscriptomics.com">diytranscriptomics</a> for downstream analysis.</p>
+				<h2>The simple guideline for the RNA-pipe:</h2>
+				<div id="introduction-of-rna-seq-upstream-analysis" class="section level2">
+					<p>A overview of RNA-seq upstream analysis:</p>
+					<p><img src="images/rnaseq_process.png"></p>
+					<p>In my RNA-pipe I used <em>fastqc</em> for quality control,
+						<em>fastp</em> for trimming and filtering. Since we are working on the
+						sequencing data from human, we have reference genome. I used
+						<em>Hisat2</em> for the alignment and <em>HTSeq</em> for quantification.
+						A python script is used to generate final count matrix. If you choose to
+						follow alignment-free quantification (which is usually easier), you can
+						see diytranscritptomics.
+					</p>
+					<p>Now I will explain these steps based on my own experience.</p>
+					<div id="learn-linux" class="section level3">
+						<h3>0. Learn Linux</h3>
+						<p>Linux is easy to learn, at least if you just need to finish some data
+							analysis work. <em>cp, mv, ls, cd</em> and some grammar about usage of
+							variables may be enough. In this RNA-pipe I have used lots of variables
+							like $REFDIR, $FPDIR. Also, to speed up the processing. Also I use lots of
+							“&amp;”, which means to run the command in background. This command is
+							dangerous if you run it on the login node of a cluster. REMEMEBER to run
+							RNA-pipe only in computing node of the cluster.</p>
 					</div>
+					<div id="download-data" class="section level3">
+						<h3>1. Download Data</h3>
+						<p>The sequencing data are in the <em>.fastq</em> format. But when you
+							use <em>prefetch</em> tool to get data by sra number, you will get
+							<em>.sra</em> file format data. Then <em>fastq-dump</em> is a great tool
+							to convert it to fastq file.
+						</p>
+					</div>
+					<div id="quality-control" class="section level3">
+						<h3>2. Quality Control</h3>
+						<p>Use <em>fastqc</em> to do quality control. If the quality is not
+							satisfying, you can use <em>fastp</em> to filter the “bad” reads. After
+							using <em>fastp</em> I use <em>fastqc</em> again to assure the quality
+							is good.</p>
+					</div>
+					<div id="mapping" class="section level3">
+						<h3>3. Mapping</h3>
+						<p>It is the most important and time-consuming step. Remember to
+							download and build the reference genome first. I used
+							<em>hisat2-build</em> to build the reference genome. (line 40 of
+							rna-pipe.sh). Then use <em>hisat2</em> to map your (filtered) fastq
+							files to that reference genome.
+						</p>
+					</div>
+					<div id="quantification" class="section level3">
+						<h3>4. Quantification</h3>
+						<p>This is the most tricky step. After mapping you get <em>.sam ( “sam”
+								stands for Sequence Alignment/Map format)</em> file (<a
+								href="https://samtools.github.io/hts-specs/SAMv1.pdf">file format</a>).
+							But <em>HTseq</em> (what we will use for quantification) seems to prefer
+							<em>.bam</em> (“b” stands for binary) files <strong>with index</strong>.
+							So you have to convert the <em>.sam</em> to <em>.bam</em> file and index
+							it before you do the quantification. The code from line 94 to line 114
+							are used for this process.
+						</p>
+						<p>After you get <em>.bam</em> file with index, you can use
+							<em>htseq-count</em> to quantify the counts of each transcript.
+							Remember, you will need a suitable <em>.gtf</em> file, which I have
+							downloaded with the reference genome at line 37.
+						</p>
+					</div>
+					<div id="get-the-count-matrix" class="section level3">
+						<h3>8. Get the Count Matrix</h3>
+						<p>Now it’s time to get the count matrix! I used a new python script for
+							this step. And python is installed with other required software before.
+							The final output file (count matrix) is
+							<strong>count_out.csv</strong>.
+						</p>
+					</div>
+				</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
-									<li><a href="https://github.com/Nimarkce" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
-									<li><a href="tel:857-693-1083" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="mailto:Yang_Li@hms.harvard.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
-							<ul class="copyright">
-								<li>&copy; 2022. All rights reserved</li><li></li>
-							</ul>
-						</div>
-					</footer>
+
+
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		</div>
+	</div>
 
-	</body>
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<section>
+				<h2>Follow</h2>
+				<ul class="icons">
+					<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
+					<li><a href="https://github.com/Nimarkce" class="icon brands style2 fa-github"><span
+								class="label">GitHub</span></a></li>
+					<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
+					<li><a href="tel:857-693-1083" class="icon solid style2 fa-phone"><span
+								class="label">Phone</span></a></li>
+					<li><a href="mailto:Yang_Li@hms.harvard.edu" class="icon solid style2 fa-envelope"><span
+								class="label">Email</span></a></li>
+				</ul>
+			</section>
+			<ul class="copyright">
+				<li>&copy; 2022. All rights reserved</li>
+				<li></li>
+			</ul>
+		</div>
+	</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
