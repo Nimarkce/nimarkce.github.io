@@ -5,37 +5,52 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Cell Segmentation</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
+<head>
+	<title>Cell Segmentation</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
 
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Project</span>
-								</a>
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-							<!-- 
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Project</span>
+				</a>
+
+				<!-- 
 								<nav>
 									<ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav> -->
 
-						</div>
-					</header>
+			</div>
+		</header>
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Main Projects</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="project01.html">Cell Segmentation</a></li>
+				<li><a href="project02.html">Epigenetic Reprogramming</a></li>
+				<li><a href="project03.html">Cancer Immune Interaction</a></li>
+				<!-- <li><a href="project04.html">Equations of Mathematical Physics</a></li> -->
+			</ul>
+		</nav>
 
-				<!-- 
+		<!-- 
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
@@ -47,51 +62,76 @@
 						</ul>
 					</nav> -->
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<h1>Realize and Optimize Cell Segmentation in Spatial Transcriptomics</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>This work has been presented in the Conference of Academic Communication for Talented Programs (基础学科英才班学术交流会)<a href = "https://news.ustc.edu.cn/info/1055/79508.htm">(news report about this event)</a> at University of Science and Technology of China. <a href="./assets/files/presentation_of_cell_segmentation_Yang.pptx"><strong>Slides</strong></a><a href="https://docs.google.com/presentation/d/1usMTEwL6TOs-pja9dxk3eEhiA2eqDp8G/edit?usp=sharing&ouid=101995205708342383820&rtpof=true&sd=true">Slides in Google Drive</a>.</p>
-							<p>Cell segmentation is an important step in the pre-processing of the spatial transcriptomics data. Nowadays the technologies of spatial transcriptomics can be mainly classified as two types: Based on NGS and based on image. For these methods that using image to detect the signal of molecular (probe), we need to assign each signal (point at the image) to a given cell. The cell boundary can be marked using H&E staining. </p>
-							<p>After assign the signal to the cell, the data becomes "single cell transcriptomics data with the position". Then the data can be used to analysis using the standard workflow of single-cell analysis. </p>
-							<p>However, in May. 2021, when I start the project, the cell segmentation tools are not optimal. The most commonly used methods are based on the watershed algorithm, which is not suitable for the tools developed by our lab</p>
-							<p>Being new in the computational field, I had a lot to learn. But I successfully utitalized three tools based on deep learning to our own dataset. In the process I rewrite and rearrange large part of the source code, which utimately significantly improved the accuracy of cell segmentation in our dataset. </p>
-							<p>Another problem in the spatial transcriptomics upstream analysis is to make use of the 3D image. The format of the data is <a href="https://docs.openmicroscopy.org/ome-model/5.6.3/ome-tiff/">OME-TIFF</a>. How to use the image data from different focus plane (z-stacks)? Currently, the most useful method is the maxiumn intensity projection, but it do not use the signal from all z-stacks. 
-							With the help of colleagues, we developed an algorithm to track the same segmented cell in different z-stacks. This algorithm has the promise to utilize all information from the image data.</p>
-						</div>
-					</div>
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>Realize and Optimize Cell Segmentation in Spatial Transcriptomics</h1>
+				<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+				<p>This work has been presented in the Conference of Academic Communication for Talented Programs
+					(基础学科英才班学术交流会)<a href="https://news.ustc.edu.cn/info/1055/79508.htm">(news report about this
+						event)</a> at University of Science and Technology of China. <a
+						href="./assets/files/presentation_of_cell_segmentation_Yang.pptx"><strong>Slides</strong></a><a
+						href="https://docs.google.com/presentation/d/1usMTEwL6TOs-pja9dxk3eEhiA2eqDp8G/edit?usp=sharing&ouid=101995205708342383820&rtpof=true&sd=true">Slides
+						in Google Drive</a>.</p>
+				<p>Cell segmentation is an important step in the pre-processing of the spatial transcriptomics data.
+					Nowadays the technologies of spatial transcriptomics can be mainly classified as two types: Based on
+					NGS and based on image. For these methods that using image to detect the signal of molecular
+					(probe), we need to assign each signal (point at the image) to a given cell. The cell boundary can
+					be marked using H&E staining. </p>
+				<p>After assign the signal to the cell, the data becomes "single cell transcriptomics data with the
+					position". Then the data can be used to analysis using the standard workflow of single-cell
+					analysis. </p>
+				<p>However, in May. 2021, when I start the project, the cell segmentation tools are not optimal. The
+					most commonly used methods are based on the watershed algorithm, which is not suitable for the tools
+					developed by our lab</p>
+				<p>Being new in the computational field, I had a lot to learn. But I successfully utitalized three tools
+					based on deep learning to our own dataset. In the process I rewrite and rearrange large part of the
+					source code, which utimately significantly improved the accuracy of cell segmentation in our
+					dataset. </p>
+				<p>Another problem in the spatial transcriptomics upstream analysis is to make use of the 3D image. The
+					format of the data is <a
+						href="https://docs.openmicroscopy.org/ome-model/5.6.3/ome-tiff/">OME-TIFF</a>. How to use the
+					image data from different focus plane (z-stacks)? Currently, the most useful method is the maxiumn
+					intensity projection, but it do not use the signal from all z-stacks.
+					With the help of colleagues, we developed an algorithm to track the same segmented cell in different
+					z-stacks. This algorithm has the promise to utilize all information from the image data.</p>
+			</div>
+		</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
-									<li><a href="https://github.com/Nimarkce" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
-									
-									<li><a href="mailto:Yang_Li@hms.harvard.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
-							<ul class="copyright">
-								<li>&copy; 2022. All rights reserved</li><li></li>
-							</ul>
-						</div>
-					</footer>
+						<li><a href="https://github.com/Nimarkce" class="icon brands style2 fa-github"><span
+									class="label">GitHub</span></a></li>
+						<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
 
+						<li><a href="mailto:Yang_Li@hms.harvard.edu" class="icon solid style2 fa-envelope"><span
+									class="label">Email</span></a></li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>&copy; 2022. All rights reserved</li>
+					<li></li>
+				</ul>
 			</div>
+		</footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	</div>
 
-	</body>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
 </html>

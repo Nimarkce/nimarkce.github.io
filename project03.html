@@ -5,96 +5,128 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Interaction of Cancer and Immune System</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
+<head>
+	<title>Interaction of Cancer and Immune System</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
 
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Project</span>
-								</a>
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-							<!-- 
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Project</span>
+				</a>
+
+				<!-- 
 								<nav>
 									<ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav> -->
 
-						</div>
-					</header>
+			</div>
+		</header>
 
-				<!-- 
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-					</nav> -->
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Main Projects</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="project01.html">Cell Segmentation</a></li>
+				<li><a href="project02.html">Epigenetic Reprogramming</a></li>
+				<li><a href="project03.html">Cancer Immune Interaction</a></li>
+				<!-- <li><a href="project04.html">Equations of Mathematical Physics</a></li> -->
+			</ul>
+		</nav>
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>Model the Interaction between Cancer and Immune System</h1>
+				<span class="image main"><img src="images/project_interaction_2.png" alt="" /></span>
+				<p>This work has a preprint. <a
+						href="https://drive.google.com/file/d/1b7y1-L-QSsc9o_fNmpCPTatgzu_zXqzD/view?usp=sharing"><strong>Here</strong></a>
+				</p>
+				<p>Cancer is one of the most threatening diseases that human beings have not been able to completely
+					overcome, and its occurrence and evolution in the body is a problem that people have been paying
+					close attention to. However, the immune system could clear cancer cells before they cause harm to
+					the body, with a function known as immune surveillance. Immune surveillance can inhibit tumor
+					development, but some tumors can still develop under normal immune surveillance. It means that some
+					tumor cells could escape during the interaction with immune cells and rapidly evolve to be immune to
+					the attack by immune cells for a long time. Many studies have shown that tumor immune escape
+					mechanism is the main obstacle affecting tumor treatment. (Yasumoto et al., 2009,Méndez et al., 2007
+					, Raval et al., 2014)</p>
+				<p>In the body, NK cells and CD8+ T cells can directly kill tumor cells. As an innate immune cell, NK
+					cells can kill tumor cells by expressing Fas ligand (FasL), TNF-related apoptosis-inducing ligand
+					(TRAIL), and secreting perforin. NK cells can also lyse tumor cells through antibody-dependent
+					cytotoxicity (ADCC), which includes antibody binding to the FcγRIIIa receptor (CD16) on NK cells
+					(Seidel et al., 2013, DiLillo and Ravetch, 2015). Activated CD8+ T cells (CTL) can kill tumor cells
+					by means of interacting with death cell ligands or secreting perforin and granzyme. Considering the
+					crucial functions of NK cells and CTL cells in tumor immune surveillance, we mainly focused on the
+					functions of NK cells and CTL cells in the process of build this model.
+				</p>
+				<p>
+					According to relevant studies, tumor cells that survive the interaction with immune cells will
+					undergo certain changes, such as down-regulation of pro-apoptotic receptors and up-regulation of
+					anti-apoptotic receptors (Igney and Krammer, 2002, Classen et al. , 2012), and the evolution of
+					cells occurs in this process. The evolutionary outcome depends on the type of immune cells that
+					interact with the tumor cells. If the tumor cell can survive after interacting with both NK cells
+					and CTL cells, it will acquire complete or maximal resistance to such immune cells (Al-Tameemi et
+					al., 2012). Therefore, tumor cells will change dynamically with the interaction with immune cells.
+				</p>
+				<p>
+					So we use a group of differential equations to demonstrate the fluctuations of the tumor cells and
+					the immune cells. More details please refer to the <a
+						href="./assets/files/preprint_tumor immune interaction.pdf"><strong>preprint</strong></a>.
+				</p>
+			</div>
+		</div>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<h1>Model the Interaction between Cancer and Immune System</h1>
-							<span class="image main"><img src="images/project_interaction_2.png" alt="" /></span>
-							<p>This work has a preprint. <a href="https://drive.google.com/file/d/1b7y1-L-QSsc9o_fNmpCPTatgzu_zXqzD/view?usp=sharing"><strong>Here</strong></a></p>
-							<p>Cancer is one of the most threatening diseases that human beings have not been able to completely overcome, and its occurrence and evolution in the body is a problem that people have been paying close attention to. However, the immune system could clear cancer cells before they cause harm to the body, with a function known as immune surveillance. Immune surveillance can inhibit tumor development, but some tumors can still develop under normal immune surveillance. It means that some tumor cells could escape during the interaction with immune cells and rapidly evolve to be immune to the attack by immune cells for a long time. Many studies have shown that tumor immune escape mechanism is the main obstacle affecting tumor treatment. (Yasumoto et al., 2009,Méndez et al., 2007 , Raval et al., 2014)</p>
-							<p>In the body, NK cells and CD8+ T cells can directly kill tumor cells. As an innate immune cell, NK cells can kill tumor cells by expressing Fas ligand (FasL), TNF-related apoptosis-inducing ligand (TRAIL), and secreting perforin. NK cells can also lyse tumor cells through antibody-dependent cytotoxicity (ADCC), which includes antibody binding to the FcγRIIIa receptor (CD16) on NK cells (Seidel et al., 2013, DiLillo and Ravetch, 2015). Activated CD8+ T cells (CTL) can kill tumor cells by means of interacting with death cell ligands or secreting perforin and granzyme. Considering the crucial functions of NK cells and CTL cells in tumor immune surveillance, we mainly focused on the functions of NK cells and CTL cells in the process of build this model.
-							</p>
-							<p>
-							According to relevant studies, tumor cells that survive the interaction with immune cells will undergo certain changes, such as down-regulation of pro-apoptotic receptors and up-regulation of anti-apoptotic receptors (Igney and Krammer, 2002, Classen et al. , 2012), and the evolution of cells occurs in this process. The evolutionary outcome depends on the type of immune cells that interact with the tumor cells. If the tumor cell can survive after interacting with both NK cells and CTL cells, it will acquire complete or maximal resistance to such immune cells (Al-Tameemi et al., 2012). Therefore, tumor cells will change dynamically with the interaction with immune cells.
-							</p>
-							<p>
-							So we use a group of differential equations to demonstrate the fluctuations of the tumor cells and the immune cells. More details please refer to the <a href="./assets/files/preprint_tumor immune interaction.pdf"><strong>preprint</strong></a>.
-							</p>
-						</div>
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
-									<li><a href="https://github.com/Nimarkce" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
-									
-									<li><a href="mailto:Yang_Li@hms.harvard.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
-							<ul class="copyright">
-								<li>&copy; 2022. All rights reserved</li><li></li>
-							</ul>
-						</div>
-					</footer>
+						<li><a href="https://github.com/Nimarkce" class="icon brands style2 fa-github"><span
+									class="label">GitHub</span></a></li>
+						<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
 
+						<li><a href="mailto:Yang_Li@hms.harvard.edu" class="icon solid style2 fa-envelope"><span
+									class="label">Email</span></a></li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>&copy; 2022. All rights reserved</li>
+					<li></li>
+				</ul>
 			</div>
+		</footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	</div>
 
-	</body>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
